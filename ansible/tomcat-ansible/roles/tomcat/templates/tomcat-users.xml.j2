@@ -36,11 +36,11 @@
 -->
 <!-- user manager can access only manager section -->
 <role rolename="manager-gui" />
-<user username= password="{{ ui_manager_pass }}" roles="manager-gui" />
+<role rolename="manager-script" />
+<user username={{ ui_manager_username }} password="{{ ui_manager_pass }}" roles="manager-gui,manager-script" />
 
 <!-- user delpoyer can access to deploy war -->
-<role rolename="manager-script" />
-<user username="{{ ui_deployer_username }}" password="{{ ui_deployer_username }}" roles="manager-script"/>
+<user username="{{ ui_deployer_username }}" password="{{ ui_deployer_pass }}" roles="manager-script"/>
 
 <!-- user admin can access manager and admin section both -->
 <role rolename="admin-gui" />
