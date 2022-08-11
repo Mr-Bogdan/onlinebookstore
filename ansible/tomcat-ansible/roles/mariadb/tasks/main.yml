@@ -1,0 +1,21 @@
+---
+#Install MariaDB server
+- name: Install MariaDB Packages
+  yum: name={{ item }} update_cache=yes state=latest
+  loop: [ 'mariadb-server' ]
+
+# Start MariaDB Service
+- name: Start MariaDB service
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+  become: true
+
+- name: Copy Mysql data
+  copy:
+    src: /home/bohdan/devops/techmagic/Homework4/onlinebookstore/setup/CreateDatastore.sql
+    dest: /root/jenkins-project
+
+# - name: Import DB 
+#   shell: mysql < /root/jenkins-project/CreateDatastore.sql
