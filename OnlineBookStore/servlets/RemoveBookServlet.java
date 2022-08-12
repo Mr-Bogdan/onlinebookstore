@@ -8,6 +8,11 @@ import sql.IBookConstants;
 import java.io.*;
 
 public class RemoveBookServlet extends GenericServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType("text/html");

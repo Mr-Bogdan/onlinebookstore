@@ -1,12 +1,26 @@
 package servlets;
-import java.io.*;
-import java.sql.*;
-import javax.servlet.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-import constants.IOnlineBookStoreConstants;
+import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
 import sql.IBookConstants;
 
 public class ViewBookServlet extends GenericServlet{
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2579372655132216858L;
+
 	public void service(ServletRequest req,ServletResponse res) throws IOException,ServletException
 	{
 		PrintWriter pw = res.getWriter();

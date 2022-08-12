@@ -14,6 +14,13 @@ import constants.IOnlineBookStoreConstants;
 import sql.IBookConstants;
 
 public class AddBookServlet extends GenericServlet{
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7102230317187588864L;
+
 	public void service(ServletRequest req,ServletResponse res) throws IOException,ServletException
 	{
 		PrintWriter pw = res.getWriter();

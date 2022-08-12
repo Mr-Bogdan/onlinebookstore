@@ -1,16 +1,26 @@
 package servlets;
 
-import javax.servlet.*;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 import constants.IOnlineBookStoreConstants;
 import sql.IUserContants;
 
-import java.io.*;
-import java.sql.*;
-
 public class AdminLoginServlet extends GenericServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
@@ -26,8 +36,6 @@ public class AdminLoginServlet extends GenericServlet {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-				
-				Cookie ck = new Cookie("usertype","admin");
 				
 				rd.include(req, res);
 				pw.println("<div class=\"tab\">Admin login Successful</div>");

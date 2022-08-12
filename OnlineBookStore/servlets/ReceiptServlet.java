@@ -8,6 +8,11 @@ import constants.IOnlineBookStoreConstants;
 import sql.IBookConstants;
 
 public class ReceiptServlet extends GenericServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
@@ -65,7 +70,6 @@ public class ReceiptServlet extends GenericServlet {
 				}
 			}
 			pw.println("</table><br/><div class='tab'>Total Paid Amount: " + total + "</div>");
-			String fPay = req.getParameter("f_pay");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
